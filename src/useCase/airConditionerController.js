@@ -31,6 +31,8 @@ class AirConditionerController {
     }
     this.remoClient.sendSignal("OFF");
     PropertiesService.getScriptProperties().setProperty('AirConditionerIsOn', 'off');
+    const lineSender = new LINESender(Config.LINE_ACCESS_TOKEN);
+    lineSender.sendMessage("エアコンをオフにしました。");
   }
 
   /* エアコンの温度を設定する */
